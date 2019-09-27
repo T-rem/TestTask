@@ -5,7 +5,6 @@ fun main(args: Array<String>){
     var words: List<String>
     if (args.isEmpty()) {
         do {
-            println("Enter text:")
             words = readLine().toString().split(reg)
             words = words.filter { it != "" }
         }
@@ -31,14 +30,9 @@ fun solution (sol: List<String>) {
         }
     }
     val sortedAnswer = outAnswer.toSortedMap()
-    if (sortedAnswer.isEmpty()) {
-        println("There are no words. Try again.")
-    }
-    else {
         for (result in sortedAnswer){
             println("${result.key}  ${result.value}")
         }
-    }
 }
 
 fun argsToLine(arr: Array<String>) : String{
