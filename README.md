@@ -1,11 +1,11 @@
-#Описание:
+## Описание:
 Программа представляет из себя текстовый редактор, который принимает на вход аргумент/аргументы командной строки:
 >1. Выделяет из аргумента/аргументов уникальные слова
 >2. Подсчитывает каждое уникальное слово
 >3. Сортирует по алфавиту
 >4. Выводит полученный результат
 	
-#Запуск:
+## Запуск:
 Осуществляется путем вызова TestTask.jar из командной строки. Данный файл находится по пути out/artifacts/TestTask_jar/
 Варианты запуска:
 > 1. java -jar TestTask.jar (В данном случае после выполнения команды необходимо вручную ввести параметры для программы)
@@ -13,7 +13,7 @@
 > 3. java -jar TestTask.jar "arguments" (Аналогично с п.2)
 > 4. echo "arguments" | java -jar TestTask.jar (Апалогично с п.2)
 	
-#Тестирование:
+## Тестирование:
 Осуществляется при помощи запуска скрипта testingScript.sh. Данный файл находится в корневой папке TestTask.
 Правила работы со скриптом:
 
@@ -23,39 +23,41 @@
 ---
 the quick brown fox jumps over the lazy dog dog
 
-> brown 1
-> dog 2
-> fox 1
-> jumps 1
-> lazy 1
-> over 1
-> quick 1
-> the 2
+brown 1
+dog 2
+fox 1
+jumps 1
+lazy 1
+over 1
+quick 1
+the 2
+
 ---
 >4. Установить для спкрипта флаг исполняемости chmod ugo+x testingScript.sh
 >5. Запустить скрипт в командной строке через через интерпритатотр sh или bash (sh testingScript.sh или bash testingScript.sh)
 >6. Скрипт на вывод выдает ваши заданные параметры, ожидаемый вывод программы и актуальный вывод программы, к примеру:
 ---
-> Tnput: the quick brown fox jumps over the lazy dog dog
+Tnput: the quick brown fox jumps over the lazy dog dog
 
-> Expected output:
-> brown 1
-> dog 2
-> fox 1
-> jumps 1
-> lazy 1
-> over 1
-> quick 1
-> the 2
-> 
-> Actual output:
-> brown 1
-> dog 2
-> fox 1
-> jumps 1
-> lazy 1
-> over 1
-> quick 1
-> the 2
+Expected output:
+brown 1
+dog 2
+fox 1
+jumps 1
+lazy 1
+over 1
+quick 1
+the 2
+
+Actual output:
+brown 1
+dog 2
+fox 1
+jumps 1
+lazy 1
+over 1
+quick 1
+the 2
+
 ---
 > 7. Самостоятельно сравнить ожидаемый и актуальный вывод. 
