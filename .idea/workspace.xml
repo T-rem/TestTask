@@ -8,15 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9ea11a90-df8f-4153-8d33-641dab839006" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openScript.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TestTaskJar/TestTask.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestTask/META-INF/TestTask.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestTask/META-INF/TestTask.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestTask/TestKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestTask/TestKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestTask/TtKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tt.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testingScript.sh" beforeDir="false" afterPath="$PROJECT_DIR$/testingScript.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
