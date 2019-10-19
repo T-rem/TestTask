@@ -1,4 +1,5 @@
 /.idea/
-/out/production/
+/lib/
+/out/
 *.iml 
 *.class
