@@ -5,5 +5,5 @@ echo " Input: $arg \n"
 echo " Expected output:
 $expect"
 cd ./src
-echo "Application output:"
+echo "Actual output:"
 java -jar application.jar $arg
