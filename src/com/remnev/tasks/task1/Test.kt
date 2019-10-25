@@ -1,4 +1,6 @@
-    fun main(args: Array<String>) {
+package com.remnev.tasks.task1
+
+fun main(args: Array<String>) {
         val reg = Regex("(?U)\\W+")
         var words: List<String>
         if (args.isEmpty()) {

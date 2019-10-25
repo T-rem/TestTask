@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ../src/
+cd ../src/com/remnev/tasks
 echo " Input: -h"
 echo " Expected output:
 1"

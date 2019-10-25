@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ../src
-kotlinc Test.kt -include-runtime -d Task1.jar
+cd ../src/com/remnev/tasks
+kotlinc task1 -include-runtime -d Task1.jar

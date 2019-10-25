@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ../src
-kotlinc Task2.kt -include-runtime -d Task2.jar
+cd ../src/com/remnev/tasks/
+kotlinc task2 -include-runtime -d Task2.jar
