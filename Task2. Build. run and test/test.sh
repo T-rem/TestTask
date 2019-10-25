@@ -2,7 +2,7 @@
 cd ../src/
 echo " Input: -h"
 echo " Expected output:
-blach-blach"
+1"
 echo "Actual output:"
 java -jar Task2.jar -h
 
@@ -27,7 +27,7 @@ java -jar Task2.jar -pass user1 -login user1
 
 echo " Input: -login user1"
 echo " Expected output:
-blach-blach"
+1"
 echo "Actual output:"
 java -jar Task2.jar -login user1
 
