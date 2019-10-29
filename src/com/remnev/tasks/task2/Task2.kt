@@ -6,19 +6,20 @@ val users = listOf<User>(admin, user1)
 val reg = Regex("^[a-zA-Z0-9]+$")
 
 fun main(args: Array<String>) {
-    if (args.isEmpty()) println(1)
-    else {
+    if (args.isNotEmpty()) {
         val params = Params(args)
         if (!params.isHelp) {
             val validate = ValidateService(users)
             val user = validate.findingUser(params.login)
             when {
                 !validate.isLoginValid(params.login) -> println(2)
-                user == null -> println(3)
-                validate.isPassCorrect(user, params.pass) -> println(0)
-                else -> println(4)
+                user != null -> if (!validate.isPassCorrect(user, params.pass)) println(4)
+                else println(0)
+                else -> println(3)
             }
         } else println(1)
+    } else {
+        println(1)
     }
 }
 

@@ -13,27 +13,19 @@ class Params(arr: Array<String>) {
 
     private fun getParams(arr: Array<String>): Array<String> {
         val params = arrayOf("", "", "false")
-        when {
-            !checker(arr) -> {
-                params[2] = "true"
-                return params
+        if (checker(arr)) {
+            when (arr[0]) {
+                "-login" -> params[0] = arr[1]
+                "-pass" -> params[1] = arr[1]
+                else -> params[2] = "true"
             }
-            else -> {
-                when {
-                    arr[0] != "-login" || arr[2] == "-login" -> if (arr[0] == "-login" && arr[2] != "-login") {
-                        params[0] = arr[1]
-                        if (arr[2] != "-pass") params[2] = "true"
-                        else params[1] = arr[3]
-                    }
-                    else -> {
-                        params[0] = arr[1]
-                        if (arr[2] == "-pass") params[1] = arr[3]
-                        else params[2] = "true"
-                    }
-                }
-                return params
+            when (arr[2]) {
+                "-login" -> params[0] = arr[3]
+                "-pass" -> params[1] = arr[3]
+                else -> params[2] = "true"
             }
-        }
+        } else params[2] = "true"
+        return params
     }
 
 
