@@ -42,11 +42,3 @@ echo " Expected output:
 4"
 echo "Actual output:"
 java -jar Task2.jar -login user1 -pass 123
-
-echo " Input: xxx"
-echo " Expected output:
-1"
-echo "Actual output:"
-java -jar Task2.jar xxx
-
-

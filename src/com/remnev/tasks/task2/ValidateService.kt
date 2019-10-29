@@ -1,18 +1,28 @@
 package com.remnev.tasks.task2
 
-class ValidateService(private val pairLoginHash: Map<String, String>, private val pairLoginSalt: Map<String, String>) {
+import java.security.MessageDigest
+
+class ValidateService(private val users: List<User>) {
 
     fun isLoginValid(login: String): Boolean = reg.matches(login)
 
     fun findingUser(login: String): User? {
-        return if (pairLoginSalt.containsKey(login))
-            pairLoginHash[login]?.let { pairLoginSalt[login]?.let { it1 -> User(login, it1, it) } }
-        else null
+        for (person in users){
+            if (person.login == login) return User(person.login, person.hash, person.salt)
+        }
+        return null
     }
 
-    fun isPassCorrect(login: String, pass: String): Boolean {
-        val hasher = Hasher()
-        val inputHash = hasher.hash(hasher.hash(pass) + pairLoginSalt[login])
-        return inputHash == pairLoginHash[login]
+    fun isPassCorrect(user: User, pass: String): Boolean {
+        val inputHash = hash(hash(pass) + user.salt )
+        return inputHash == user.hash
     }
+
+    companion object fun hash(h: String): String {
+            val bytes = h.toByteArray()
+            val md = MessageDigest.getInstance("SHA-256")
+            val digest = md.digest(bytes)
+            return digest.fold("", { str, it -> str + "%02x".format(it) })
+        }
+
 }
