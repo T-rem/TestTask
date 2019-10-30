@@ -6,30 +6,32 @@ class Params(arr: Array<String>) {
     val isHelp: Boolean
 
     init {
-        login = getParams(arr)[0]
-        pass = getParams(arr)[1]
-        isHelp = getParams(arr)[2] == "true"
+        when(checkArgs(arr)){
+            0->{
+                login = arr[1]
+                pass = arr[3]
+                isHelp = false
+            }
+            1->{
+                login = arr[3]
+                pass = arr[1]
+                isHelp = false
+            }
+            else ->{
+                login = ""
+                pass = ""
+                isHelp = true
+            }
+        }
+
     }
 
-    private fun getParams(arr: Array<String>): Array<String> {
-        val params = arrayOf("", "", "false")
-        if (checker(arr)) {
-            when (arr[0]) {
-                "-login" -> params[0] = arr[1]
-                "-pass" -> params[1] = arr[1]
-                else -> params[2] = "true"
-            }
-            when (arr[2]) {
-                "-login" -> params[0] = arr[3]
-                "-pass" -> params[1] = arr[3]
-                else -> params[2] = "true"
-            }
-        } else params[2] = "true"
-        return params
-    }
-
-
-    private fun checker(arr: Array<String>): Boolean {
-        return arr.size == 4
+    private fun checkArgs(arr: Array<String>): Int {
+        return when{
+            arr.size != 4 -> -1
+            (arr.size == 4) and (arr[0] == "-login") and (arr[2] == "-pass") -> 0
+            (arr.size == 4) and (arr[0] == "-pass") and (arr[2] == "-login") -> 1
+            else -> 2
+        }
     }
 }
