@@ -7,15 +7,14 @@ class ValidateService(private val users: List<User>) {
     fun isLoginValid(login: String): Boolean = reg.matches(login)
 
     fun findUser(login: String): User? {
-        for (person in users){
+        for (person in users) {
             if (person.login == login) return User(person.login, person.hash, person.salt)
         }
         return null
     }
 
     fun isPassCorrect(user: User, pass: String): Boolean {
-        val inputHash = getHash(getHash(pass) + user.salt )
-        return inputHash == getHash(user.hash + user.salt)
+        return getHash(getHash(pass) + user.salt)== getHash(user.hash + user.salt)
     }
 
     companion object Hash {
