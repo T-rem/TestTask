@@ -14,7 +14,7 @@ class ValidateService(private val users: List<User>) {
     }
 
     fun isPassCorrect(user: User, pass: String): Boolean {
-        return getHash(getHash(pass) + user.salt)== getHash(user.hash + user.salt)
+        return getHash(getHash(pass) + user.salt) == getHash(user.hash + user.salt)
     }
 
     companion object Hash {
