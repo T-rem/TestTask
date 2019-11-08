@@ -3,6 +3,7 @@ package com.remnev.tasks.task2
 import java.security.MessageDigest
 
 class ValidateService(private val users: List<User>) {
+    private val reg = Regex("^[a-zA-Z0-9]+$")
 
     fun isLoginValid(login: String): Boolean = reg.matches(login)
 

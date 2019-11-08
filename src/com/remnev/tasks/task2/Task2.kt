@@ -10,10 +10,8 @@ val usersAccess = listOf(
         UserAccess("admin", "AB", Roles.EXECUTE),
         UserAccess("admin", "AB", Roles.READ),
         UserAccess("admin", "AB", Roles.WRITE),
-        UserAccess("user1","AB.C", Roles.READ)
+        UserAccess("user1", "AB.C", Roles.READ)
 )
-
-val reg = Regex("^[a-zA-Z0-9]+$")
 
 fun main(args: Array<String>) {
     val params = Params(args)
