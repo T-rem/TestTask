@@ -7,9 +7,9 @@ val users = listOf(
         User("user1", ValidateService.getHash("user1"), "salt2")
 )
 val usersAccess = listOf(
-        UserAccess("admin", "AB",Roles.EXECUTE),
-        UserAccess("admin", "AB",Roles.READ),
-        UserAccess("admin", "AB",Roles.WRITE),
+        UserAccess("admin", "AB", Roles.EXECUTE),
+        UserAccess("admin", "AB", Roles.READ),
+        UserAccess("admin", "AB", Roles.WRITE),
         UserAccess("user1","AB.C", Roles.READ)
 )
 
@@ -17,9 +17,7 @@ val reg = Regex("^[a-zA-Z0-9]+$")
 
 fun main(args: Array<String>) {
     val params = Params(args)
-    println(params.login)
-    println(params.pass)
-    println(params.isHelp)
+    val access = AccessChecker(usersAccess)
     val validate = ValidateService(users)
     val user = validate.findUser(params.login)
     when {
@@ -27,6 +25,9 @@ fun main(args: Array<String>) {
         !validate.isLoginValid(params.login) -> exitProcess(2)
         user == null -> exitProcess(3)
         !validate.isPassCorrect(user, params.pass) -> exitProcess(4)
+        (params.res == "") or (params.role == "") -> exitProcess(0)
+        !access.checkRole(params.role) -> exitProcess(5)
+        !access.checkResourse(params.res) -> exitProcess(6)
         else -> exitProcess(0)
     }
 }

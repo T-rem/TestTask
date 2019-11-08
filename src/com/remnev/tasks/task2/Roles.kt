@@ -1,1 +1,1 @@
-package com.remnev.tasks.task2enum class Roles {    READ, WRITE, EXECUTE}
+package com.remnev.tasks.task2enum class Roles(name:String) {    READ("READ"), WRITE("WRITE"), EXECUTE("EXECUTE")}
