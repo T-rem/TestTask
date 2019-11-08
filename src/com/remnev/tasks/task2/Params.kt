@@ -1,32 +1,20 @@
 package com.remnev.tasks.task2
 
+import kotlinx.cli.*
+
 class Params(arr: Array<String>) {
-    val login: String
-    val pass: String
-    val isHelp: Boolean
+    private val parser = ArgParser("example")
+    val login by parser.option(ArgType.String,shortName = "login").default("")
+    val pass by parser.option(ArgType.String,shortName = "pass").default("")
+    val role by parser.option(ArgType.String,shortName = "role").default("")
+    val res by parser.option(ArgType.String,shortName = "res").default("")
+    var isHelp: Boolean by parser.option(ArgType.Boolean).default(false)
 
     init {
+        parser.parse(arr)
         when {
-            arr.size != 4 -> {
-                login = ""
-                pass = ""
-                isHelp = true
-            }
-            (arr.size == 4) and (arr[0] == "-login") and (arr[2] == "-pass") -> {
-                login = arr[1]
-                pass = arr[3]
-                isHelp = false
-            }
-            (arr.size == 4) and (arr[0] == "-pass") and (arr[2] == "-login") -> {
-                login = arr[3]
-                pass = arr[1]
-                isHelp = false
-            }
-            else -> {
-                login = ""
-                pass = ""
-                isHelp = true
-            }
+            (arr.size < 4) or (arr.size > 8) -> isHelp = true
+            (login == "") or (pass == "") -> isHelp = true
         }
     }
 }

@@ -6,10 +6,20 @@ val users = listOf(
         User("admin", ValidateService.getHash("admin"), "salt1"),
         User("user1", ValidateService.getHash("user1"), "salt2")
 )
+val usersAccess = listOf(
+        UserAccess("admin", "AB",Roles.EXECUTE),
+        UserAccess("admin", "AB",Roles.READ),
+        UserAccess("admin", "AB",Roles.WRITE),
+        UserAccess("user1","AB.C", Roles.READ)
+)
+
 val reg = Regex("^[a-zA-Z0-9]+$")
 
 fun main(args: Array<String>) {
     val params = Params(args)
+    println(params.login)
+    println(params.pass)
+    println(params.isHelp)
     val validate = ValidateService(users)
     val user = validate.findUser(params.login)
     when {
