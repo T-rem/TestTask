@@ -1,3 +1,3 @@
-package com.remnev.tasks.task2
+package com.autentification
 
 data class User(val login: String, val hash: String, val salt: String)

@@ -1,4 +1,4 @@
-package com.remnev.tasks.task2
+package com.autentification
 
 import kotlin.system.exitProcess
 
