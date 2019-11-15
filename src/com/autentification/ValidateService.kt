@@ -26,4 +26,5 @@ class ValidateService(private val users: List<User>) {
             return digest.fold("", { str, it -> str + "%02x".format(it) })
         }
     }
+
 }
