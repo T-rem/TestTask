@@ -1,6 +1,7 @@
 #!/bin/sh
-kotlinc -cp lib/kotlinx-cli-jvm-0.2.0-SNAPSHOT.jar src/com/ -include-runtime -d application.jar
-
+echo starting comil
+kotlinc -cp kotlinx-cli-jvm-0.2.0-SNAPSHOT.jar src/com/ -include-runtime -d application.jar
+echo finish compil
 
 echo " Input: -login admin -pass admin -res AB.C.D -role EXECUTE"
 echo " Expected output:
