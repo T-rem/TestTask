@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 echo starting compil
 kotlinc -cp kotlinx-cli-jvm-0.2.0-SNAPSHOT.jar src/com/ -include-runtime -d application.jar
 echo finish compil
-fail=0
+let fail=0
 fn()
 {
   echo Input: "$1"
@@ -11,10 +11,10 @@ fn()
   res=$?
   echo Actual output: $res
   if [ $res -eq $2 ]; then
-    echo Success
+    echo -e "\e[32mSuccess\e[0m"
   else
-    echo Failed
-    let fail=fail+1
+    echo -e "\e[31mFailed\e[0m"
+    let "fail=fail+1"
   fi
 }
 fn "-login admin -pass admin -res AB.C.D -role EXECUTE" "0"
@@ -27,5 +27,5 @@ fn "-login user1 -pass user1 -res АВ -role READ" "6"
 fn "bla-bla-bla" "0"
 
 if [ $fail -gt 0 ]; then
-  exit 9
+  echo Number of failed tests: "$fail"
 fi
