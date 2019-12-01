@@ -8,6 +8,7 @@ val users = listOf(
 )
 val usersAccess = listOf(
         UserAccess("admin", "AB", Roles.EXECUTE),
+        UserAccess("admin", "A.BC.D", Roles.EXECUTE),
         UserAccess("admin", "AB", Roles.READ),
         UserAccess("admin", "AB", Roles.WRITE),
         UserAccess("user1", "AB.C", Roles.READ)

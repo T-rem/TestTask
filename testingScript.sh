@@ -17,6 +17,7 @@ fn()
     let "fail=fail+1"
   fi
 }
+fn "-login admin -pass admin -res A.BC.D -role EXECUTE" "0"
 fn "-login admin -pass admin -res AB.C.D -role EXECUTE" "0"
 fn "-login user1 -pass user1 -res AB.C -role READ" "0"
 fn "-login admin -pass admin -role EXECUTE -res AB.C.D" "0"
