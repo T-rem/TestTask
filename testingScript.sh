@@ -24,8 +24,9 @@ fn "-pass admin -login admin -role EXECUTE -res AB.C.D" "0"
 fn "-login user1 -pass user1 -res AB.C" "0"
 fn "-login admin -pass admin -res АВ -role FULLACCESS" "5"
 fn "-login user1 -pass user1 -res АВ -role READ" "6"
-fn "bla-bla-bla" "0"
+fn "bla-bla-bla" "1"
 
 if [ $fail -gt 0 ]; then
   echo Number of failed tests: "$fail"
+  exit 9
 fi
