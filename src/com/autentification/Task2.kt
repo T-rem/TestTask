@@ -26,10 +26,8 @@ fun main(args: Array<String>) {
         !validate.isPassCorrect(user, params.pass) -> exitProcess(4)
         (params.res == "") or (params.role == "") -> exitProcess(0)
         !access.isRole(params.login, params.role) -> exitProcess(5)
-        !access.isResourse(params.login, params.res, params.role) -> exitProcess(6)
+        !access.isResource(params.login, params.res, params.role) -> exitProcess(6)
+        !validate.isVolCorrect(params.vol) -> exitProcess(7)
         else -> exitProcess(0)
     }
 }
-
-
-

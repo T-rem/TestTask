@@ -1,6 +1,7 @@
 package com.autentification
 
 import java.security.MessageDigest
+import kotlin.system.exitProcess
 
 class ValidateService(private val users: List<User>) {
     private val reg = Regex("^[a-zA-Z0-9]+$")
@@ -24,6 +25,20 @@ class ValidateService(private val users: List<User>) {
             val md = MessageDigest.getInstance("SHA-256")
             val digest = md.digest(bytes)
             return digest.fold("", { str, it -> str + "%02x".format(it) })
+        }
+    }
+
+    fun isDateCorrect(date: String): Boolean {
+        TODO();
+    }
+
+    fun isVolCorrect(vol: String): Boolean {
+        try {
+            val v = vol.toInt()
+            return v % 1 == 0 && v > 0
+        }
+        catch (e: Exception){
+            exitProcess(1)
         }
     }
 

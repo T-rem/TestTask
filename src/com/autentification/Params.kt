@@ -1,6 +1,8 @@
 package com.autentification
 
-import kotlinx.cli.*
+import kotlinx.cli.ArgParser
+import kotlinx.cli.ArgType
+import kotlinx.cli.default
 import kotlin.system.exitProcess
 
 class Params(arr: Array<String>) {
@@ -9,6 +11,9 @@ class Params(arr: Array<String>) {
     val pass by parser.option(ArgType.String, shortName = "pass").default("")
     val role by parser.option(ArgType.String, shortName = "role").default("")
     val res by parser.option(ArgType.String, shortName = "res").default("")
+    val ds by parser.option(ArgType.String, shortName = "ds").default("")
+    val de by parser.option(ArgType.String, shortName = "de").default("")
+    val vol by parser.option(ArgType.String, shortName = "vol").default("")
     var isHelp: Boolean = false
 
     init {
