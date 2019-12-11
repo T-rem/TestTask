@@ -2,14 +2,14 @@ package com.autentification
 
 class AccessChecker(private val access: List<UserAccess>) {
 
-    fun isRole(login: String, role: String): Boolean {
+    fun isRoleCorrect(login: String, role: String): Boolean {
         for (user in access) {
             if (user.login == login && user.role.name == role) return true
         }
         return false
     }
 
-    fun isResource(login: String, res: String, role: String): Boolean {
+    fun isResourceCorrect(login: String, res: String, role: String): Boolean {
         val resArr = res.split(".")
         var count = 0
         for (user in access) {

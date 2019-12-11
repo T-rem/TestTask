@@ -23,8 +23,9 @@ class Params(arr: Array<String>) {
             exitProcess(1)
         }
         when {
-            (arr.size < 4) or (arr.size > 8) -> isHelp = true
+            (arr.size < 4) or (arr.size > 14 ) -> isHelp = true
             (login == "") or (pass == "") -> isHelp = true
         }
     }
 }
+

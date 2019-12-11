@@ -1,7 +1,8 @@
 package com.autentification
 
 import java.security.MessageDigest
-import kotlin.system.exitProcess
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ValidateService(private val users: List<User>) {
     private val reg = Regex("^[a-zA-Z0-9]+$")
@@ -27,18 +28,24 @@ class ValidateService(private val users: List<User>) {
             return digest.fold("", { str, it -> str + "%02x".format(it) })
         }
     }
-
     fun isDateCorrect(date: String): Boolean {
-        TODO();
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        return try {
+            LocalDate.parse(date, formatter)
+            true
+        }
+        catch (e: Exception){
+            false
+        }
     }
 
     fun isVolCorrect(vol: String): Boolean {
-        try {
+        return try {
             val v = vol.toInt()
-            return v % 1 == 0 && v > 0
+            v > 0
         }
         catch (e: Exception){
-            exitProcess(1)
+            false
         }
     }
 
